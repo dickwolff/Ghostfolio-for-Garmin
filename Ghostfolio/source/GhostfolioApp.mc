@@ -21,9 +21,9 @@ class GhostfolioApp extends Application.AppBase {
         return [ new GhostfolioView() ] as Array<Views or InputDelegates>;
     }
 
-    function getGlanceView() as Array<WatchUi.GlanceView> or Null {
-        return [ new GhostfolioGlanceView() ];
-    }
+    // function getGlanceView() as Array<WatchUi.GlanceView> or Null {
+    //     return [ new GhostfolioGlanceView() ];
+    // }
 
 }
 

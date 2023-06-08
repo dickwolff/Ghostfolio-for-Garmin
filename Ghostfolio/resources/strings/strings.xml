@@ -1,3 +1,8 @@
 <strings>
     <string id="AppName">Ghostfolio</string>
+    
+    <string id="SettingsTitleAppVersion">App Version:</string>
+
+    <!-- Settings -->
+    <string id="SettingsTitleGhostfolioEndpointUrl">Ghostfolio Endpoint URL:</string>
 </strings>
