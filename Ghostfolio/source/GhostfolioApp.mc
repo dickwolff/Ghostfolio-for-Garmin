@@ -1,8 +1,11 @@
 import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
+using Toybox.System as Sys;
 
 class GhostfolioApp extends Application.AppBase {
+
+    hidden var view;
 
     function initialize() {
         AppBase.initialize();
@@ -17,13 +20,15 @@ class GhostfolioApp extends Application.AppBase {
     }
 
     // Return the initial view of your application here
-    function getInitialView() as Array<Views or InputDelegates>? {
-        return [ new GhostfolioView() ] as Array<Views or InputDelegates>;
+    function getInitialView() {
+        var deviceSettings = Sys.getDeviceSettings();
+        view = new GhostfolioView();
+        return [ view ];
     }
 
-    // function getGlanceView() as Array<WatchUi.GlanceView> or Null {
-    //     return [ new GhostfolioGlanceView() ];
-    // }
+    function getGlanceView() {
+        return [ new GhostfolioGlanceView(view) ];
+    }
 
 }
 

@@ -1,15 +1,14 @@
 import Toybox.Graphics;
 import Toybox.WatchUi;
 
-class GhostfolioGlanceView extends WatchUi.View {
+(:glance)
+class GhostfolioGlanceView extends WatchUi.GlanceView {
 
-    function initialize() {
-        View.initialize();
-    }
+    hidden var mainview;
 
-    // Load your resources here
-    function onLayout(dc as Dc) as Void {
-        setLayout(Rez.Layouts.GlanceLayout(dc));
+    function initialize(view) {
+        GlanceView.initialize();
+        mainview = view;
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -18,16 +17,14 @@ class GhostfolioGlanceView extends WatchUi.View {
     function onShow() as Void {
     }
 
-    // Update the view
-    function onUpdate(dc as Dc) as Void {
-        // Call the parent onUpdate function to redraw the layout
-        View.onUpdate(dc);
-    }
-
     // Called when this View is removed from the screen. Save the
     // state of this View here. This includes freeing resources from
     // memory.
     function onHide() as Void {
     }
 
+    // Update the view
+    function onUpdate(dc as Dc) as Void {
+        // Call the parent onUpdate function to redraw the layout
+    }
 }
