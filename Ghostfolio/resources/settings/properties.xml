@@ -1,5 +1,10 @@
 <properties>
+    <!-- General -->
 	<property id="AppVersion" type="string">0.0.1</property>
 
+     <!-- Setting backing fields -->
     <property id="GhostfolioEndpointUrl" type="string"></property>
+
+    <!-- In-app settings -->
+    <property id="ZenMode" type="boolean">False</property>
 </properties>
