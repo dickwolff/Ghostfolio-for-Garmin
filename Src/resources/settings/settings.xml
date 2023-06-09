@@ -1,15 +1,19 @@
 <settings>
 
 	<setting propertyKey="@Properties.AppVersion" title="@Strings.SettingsTitleAppVersion">
-		<settingConfig type="alphaNumeric" readonly="true"/>
-	</setting>
-    
-	<setting propertyKey="@Properties.GhostfolioEndpointUrl" title="@Strings.SettingsTitleGhostfolioEndpointUrl">
-		<settingConfig type="alphaNumeric"/>
+		<settingConfig type="alphaNumeric" readonly="true" />
 	</setting>
 
-	<setting propertyKey="@Properties.GhostfolioSecret" title="@Strings.SettingsTitleGhostfolioSecret">
-		<settingConfig type="alphaNumeric"/>
-	</setting>
+	<group id="GhostfolioInstance" title="@Strings.SettingsTitleGroupGhostfolio" description="">
+		
+		<setting propertyKey="@Properties.GhostfolioEndpointUrl" title="@Strings.SettingsTitleGhostfolioEndpointUrl">
+			<settingConfig type="alphaNumeric" required="true" />
+		</setting>
+
+		<setting propertyKey="@Properties.GhostfolioSecret" title="@Strings.SettingsTitleGhostfolioSecret">
+			<settingConfig type="alphaNumeric" required="true" />
+		</setting>
+	
+	</group>
 
 </settings>

@@ -4,6 +4,7 @@
     <string id="SettingsTitleAppVersion">App Version:</string>
 
     <!-- Settings -->
+    <string id="SettingsTitleGroupGhostfolio">Ghostfolio instance settings</string>
     <string id="SettingsTitleGhostfolioEndpointUrl">Ghostfolio Endpoint URL:</string>
     <string id="SettingsTitleGhostfolioSecret">Ghostfolio secret:</string>
 </strings>

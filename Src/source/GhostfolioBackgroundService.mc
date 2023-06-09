@@ -16,9 +16,11 @@ class GhostfolioBackgroundService extends Sys.ServiceDelegate {
     function initialize() {
 		Sys.ServiceDelegate.initialize();
         
-        ghostfolioUrl = App.Storage.getValue("GhostfolioEndpointUrl");
-        ghostFolioSecret = App.Storage.getValue("GhostfolioSecret");
+        System.println("Initializing background service.");
 
+        ghostfolioUrl = App.Properties.getValue("GhostfolioEndpointUrl");
+        ghostFolioSecret = App.Properties.getValue("GhostfolioSecret");
+        
         getAuthToken();
     }
 
@@ -50,7 +52,7 @@ class GhostfolioBackgroundService extends Sys.ServiceDelegate {
     (:background_method)
     function getAuthToken() {
         makeWebRequest(
-            ghostfolioUrl + "api/v1/auth/anonymous/" + ghostFolioSecret,
+            ghostfolioUrl + "/api/v1/auth/anonymous/" + ghostFolioSecret,
             { },
             method(:onReceiveAuthToken)
         );
@@ -58,6 +60,7 @@ class GhostfolioBackgroundService extends Sys.ServiceDelegate {
 
     (:background_method)
     function onReceiveAuthToken(responseCode, data) {
+        System.println("Auth response: " + responseCode);
         ghostfolioBearer = data["authToken"];
 
         Bg.exit({
@@ -70,10 +73,12 @@ class GhostfolioBackgroundService extends Sys.ServiceDelegate {
         var options = {
 			:method => Comms.HTTP_REQUEST_METHOD_GET,
 			:headers => {
-					"Content-Type" => Communications.REQUEST_CONTENT_TYPE_URL_ENCODED},
+					"Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON 
+            },
 			:responseType => Comms.HTTP_RESPONSE_CONTENT_TYPE_JSON
 		};
 
+        System.println("Make web request.. " + url);
 		Comms.makeWebRequest(url, params, options, callback);
     }
 }
