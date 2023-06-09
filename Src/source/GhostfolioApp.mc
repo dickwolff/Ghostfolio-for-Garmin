@@ -10,6 +10,8 @@ class GhostfolioApp extends App.AppBase {
 
     function initialize() {
         AppBase.initialize();
+
+        Background.registerForTemporalEvent(new Time.Duration(5* 60));
     }
 
     // onStart() is called on application start up
