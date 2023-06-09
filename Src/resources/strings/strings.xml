@@ -5,4 +5,5 @@
 
     <!-- Settings -->
     <string id="SettingsTitleGhostfolioEndpointUrl">Ghostfolio Endpoint URL:</string>
+    <string id="SettingsTitleGhostfolioSecret">Ghostfolio secret:</string>
 </strings>

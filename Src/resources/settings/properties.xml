@@ -4,7 +4,10 @@
 
      <!-- Setting backing fields -->
     <property id="GhostfolioEndpointUrl" type="string"></property>
+    <property id="GhostfolioSecret" type="string"></property>
 
     <!-- In-app settings -->
     <property id="ZenMode" type="boolean">False</property>
+
+    <!-- Web Request Responses -->
 </properties>

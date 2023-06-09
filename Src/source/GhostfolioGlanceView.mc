@@ -1,14 +1,16 @@
 import Toybox.Graphics;
 import Toybox.WatchUi;
+using Toybox.Application as App;
 
 (:glance)
 class GhostfolioGlanceView extends WatchUi.GlanceView {
 
-    hidden var mainview;
-
-    function initialize(view) {
+    function initialize() {
         GlanceView.initialize();
-        mainview = view;
+
+        if (GhostfolioApp has :checkPortfolio) {
+            App.getApp().checkPortfolio();
+        }
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -27,4 +29,5 @@ class GhostfolioGlanceView extends WatchUi.GlanceView {
     function onUpdate(dc as Dc) as Void {
         // Call the parent onUpdate function to redraw the layout
     }
+
 }
