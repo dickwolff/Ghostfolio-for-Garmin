@@ -1,10 +1,10 @@
-import Toybox.Application;
 import Toybox.Lang;
-import Toybox.WatchUi;
 import Toybox.System;
+using Toybox.WatchUi as Ui;
+using Toybox.Application as App;
 
 (:background)
-class GhostfolioApp extends Application.AppBase {
+class GhostfolioApp extends App.AppBase {
 
     hidden var view;
 
@@ -39,11 +39,23 @@ class GhostfolioApp extends Application.AppBase {
     }
 
     (:background_method)
-    function checkPortfolio() {
-        System.print("checkPortfolio()");
+    function onBackgroundData(data) {
+
+		var pendingWebRequests = App.Properties.getValue("PendingWebRequests");
+		if (pendingWebRequests == null) {
+			pendingWebRequests = {};
+		}
+
+        var type = data.keys()[0];
+        var receivedData = data[type];
+
+        App.Properties.setValue("PendingWebRequests", null);
+        App.Properties.setValue(type, receivedData);
+
+        Ui.requestUpdate();
     }
 }
 
 function getApp() as GhostfolioApp {
-    return Application.getApp() as GhostfolioApp;
+    return App.getApp() as GhostfolioApp;
 }

@@ -1,6 +1,8 @@
 using Toybox.System as Sys;
+using Toybox.Background as Bg;
 using Toybox.Application as App;
 using Toybox.Communications as Comms;
+import Toybox.Lang;
 
 (:background)
 class GhostfolioBackgroundService extends Sys.ServiceDelegate {
@@ -22,15 +24,15 @@ class GhostfolioBackgroundService extends Sys.ServiceDelegate {
 
     (:background_method)
     function onTemporalEvent() { 
-        var pendingWebRequests = App.getApp().getProperty("PendingWebRequests");
-        if (pendingWebRequest != null) {
+        var pendingWebRequests = App.getApp().getProperty("PendingWebRequests") as Dictionary<String, Object or Null>;
+        if (pendingWebRequests != null) {
 
-            // Get Performance 
-            if (pendingWebRequests["GetPerformance"] != null) {
+            // Get Performance .
+            if (pendingWebRequests["PerformanceGlance"] != null) {
                 makeWebRequest(
                     ghostfolioUrl + "api/v2/portfolio/performance?range=1d",
                     {
-                        Authorization => "Bearer " + ghostfolioBearer
+                        "Authorization" => "Bearer " + ghostfolioBearer
                     },
                     method(:onReceivePerformance)
                 );
@@ -39,7 +41,7 @@ class GhostfolioBackgroundService extends Sys.ServiceDelegate {
     }
 
     (:background_method)
-    function onReceiveAuthToken(responseCode, data) {
+    function onReceivePerformance(responseCode, data) {
         Bg.exit({
             "Performance" => data
         });
