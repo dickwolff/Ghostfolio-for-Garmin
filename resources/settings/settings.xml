@@ -1,9 +1,5 @@
 <settings>
 
-	<setting propertyKey="@Properties.AppVersion" title="@Strings.SettingsTitleAppVersion">
-		<settingConfig type="alphaNumeric" readonly="true" />
-	</setting>
-
 	<group id="GhostfolioInstance" title="@Strings.SettingsTitleGroupGhostfolio" description="">
 		
 		<setting propertyKey="@Properties.GhostfolioEndpointUrl" title="@Strings.SettingsTitleGhostfolioEndpointUrl">

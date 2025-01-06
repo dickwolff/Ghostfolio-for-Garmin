@@ -1,7 +1,7 @@
 import Toybox.Graphics;
 import Toybox.WatchUi;
 
-class GhostfolioView extends WatchUi.View {
+class GhostfolioforGarminView extends WatchUi.View {
 
     function initialize() {
         View.initialize();

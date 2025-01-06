@@ -1,8 +1,6 @@
 <strings>
-    <string id="AppName">Ghostfolio</string>
+    <string id="AppName">Ghostfolio for Garmin</string>
     
-    <string id="SettingsTitleAppVersion">App Version:</string>
-
     <!-- Settings -->
     <string id="SettingsTitleGroupGhostfolio">Ghostfolio instance settings</string>
     <string id="SettingsTitleGhostfolioEndpointUrl">Ghostfolio Endpoint URL:</string>

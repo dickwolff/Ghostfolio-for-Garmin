@@ -1,0 +1,4 @@
+<layout id="GlanceLayout">    
+    <label text="Hello, Glance!" x="center" y="top"  color="Graphics.COLOR_WHITE"  />
+    <label text="Hello, Glance!" x="center" y="bottom"  color="Graphics.COLOR_WHITE"  />
+</layout>
