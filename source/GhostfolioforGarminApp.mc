@@ -46,14 +46,14 @@ class GhostfolioforGarminApp extends Application.AppBase {
     (:glance)
     function fetchBearerToken() {
                 
-        if (! System.getDeviceSettings().phoneConnected) {
+        if (!System.getDeviceSettings().phoneConnected) {
 
             // if (mIsGlance) {
             //     WatchUi.requestUpdate();
             // } else {
                 ErrorView.show("No phone connection.");
             // }
-        } else if (! System.getDeviceSettings().connectionAvailable) {
+        } else if (!System.getDeviceSettings().connectionAvailable) {
             // if (mIsGlance) {
                 // WatchUi.requestUpdate();
             // } else {
@@ -66,7 +66,10 @@ class GhostfolioforGarminApp extends Application.AppBase {
                 null,
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_GET,
-                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                    :headers      => {                         
+                        "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON
+                    },
+                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
                 },
                 method(:onReturnFetchBearerToken)
             );
@@ -77,7 +80,7 @@ class GhostfolioforGarminApp extends Application.AppBase {
     //
     (:glance)
     function onReturnFetchBearerToken(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        System.println("onReturnFetchBearerToken: " + responseCode);
+        System.println("onReturnFetchBearerToken: " + data);
         switch (responseCode) {           
             case 200:
                 var bearerToken = data.get("authToken") as Lang.String;
